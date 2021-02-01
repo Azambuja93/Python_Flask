@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 # utilizando "from" para pegar dentro do pacote flask o import Flask apenas e não o pacorte inteiro
 
 
@@ -32,7 +32,7 @@ def criar():
     console = request.form['console']
     jogo = Jogo(nome, categoria, console) #instanciando a classe Jogo
     lista.append(jogo) # após tirar a minha lista da função ola e deixa-la na classe
-    return render_template('lista.html', titulo='Jogos', jogos=lista)
+    return redirect('/')
 
 app.run(debug=True)
 
